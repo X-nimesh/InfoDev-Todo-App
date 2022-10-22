@@ -37,6 +37,7 @@
             &:focus {
                 outline: none;
             }
+
         }
 
         button[type="submit"] {
@@ -47,10 +48,15 @@
             border: none;
             font-weight: bold;
             background-color: rgb(182, 255, 255);
+
             transition: ease-in-out 0.2s;
 
             &:hover {
                 transform: scale(1.1);
+            }
+
+            &:active {
+                transform: translatey(4px);
             }
         }
 
@@ -62,6 +68,8 @@
     .task-list {
         width: 95%;
         display: flex;
+        flex-direction: column;
+        align-items: center;
         flex-wrap: wrap;
         gap: 10px;
 
@@ -74,7 +82,45 @@
             display: flex;
             align-items: center;
             gap: 20px;
-            width: 22%;
+            padding: 20px 20px;
+            border-radius: 20px;
+            background-color: #121111;
+
+            .edit {
+                background: rgb(74, 74, 255);
+                padding: 10px 20px;
+                border-radius: 10px;
+                color: white;
+                font-weight: bold;
+                border: none;
+                transition: ease-in-out 0.2s;
+
+                &:hover {
+                    transform: scale(1.1);
+                }
+
+                &:active {
+                    transform: translatey(4px);
+                }
+            }
+
+            .delete {
+                background: rgb(255, 74, 74);
+                border: none;
+                padding: 10px 20px;
+                border-radius: 10px;
+                color: white;
+                font-weight: bold;
+                transition: ease-in-out 0.2s;
+
+                &:hover {
+                    transform: scale(1.1);
+                }
+
+                &:active {
+                    transform: translatey(4px);
+                }
+            }
         }
     }
 }

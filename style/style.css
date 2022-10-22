@@ -47,9 +47,14 @@
 .main-container .add-data-form button[type=submit]:hover {
   transform: scale(1.1);
 }
+.main-container .add-data-form button[type=submit]:active {
+  transform: translatey(4px);
+}
 .main-container .task-list {
   width: 95%;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   flex-wrap: wrap;
   gap: 10px;
 }
@@ -57,9 +62,41 @@
   display: flex;
   align-items: center;
   gap: 20px;
-  width: 22%;
+  padding: 20px 20px;
+  border-radius: 20px;
+  background-color: #121111;
 }
 .main-container .task-list .task input[type=checkbox] {
   width: 30px;
   height: 15px;
+}
+.main-container .task-list .task .edit {
+  background: rgb(74, 74, 255);
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  border: none;
+  transition: ease-in-out 0.2s;
+}
+.main-container .task-list .task .edit:hover {
+  transform: scale(1.1);
+}
+.main-container .task-list .task .edit:active {
+  transform: translatey(4px);
+}
+.main-container .task-list .task .delete {
+  background: rgb(255, 74, 74);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  transition: ease-in-out 0.2s;
+}
+.main-container .task-list .task .delete:hover {
+  transform: scale(1.1);
+}
+.main-container .task-list .task .delete:active {
+  transform: translatey(4px);
 }/*# sourceMappingURL=style.css.map */
