@@ -88,16 +88,18 @@
   padding: 20px 20px;
   border-radius: 20px;
   background-color: #121111;
-  min-width: 50%;
-  max-width: 50%;
+  width: 50vw;
   transition: ease-in-out 0.4s;
   -webkit-animation: append-animate 0.3s linear;
           animation: append-animate 0.3s linear;
 }
+.main-container .task-list .task:hover {
+  transform: scale(1.1);
+}
 .main-container .task-list .task .editInput {
   z-index: 2;
   position: absolute;
-  width: 48%;
+  width: 50vw;
   height: 60px;
   background-color: #121111;
   display: flex;
@@ -127,6 +129,21 @@
   transform: scale(1.1);
 }
 .main-container .task-list .task .editInput .saveButton:active {
+  transform: translatey(4px);
+}
+.main-container .task-list .task .editInput .cancelButton {
+  background: rgb(255, 74, 74);
+  padding: 10px 40px;
+  border-radius: 10px;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  border: none;
+  transition: ease-in-out 0.2s;
+}
+.main-container .task-list .task .editInput .cancelButton:hover {
+  transform: scale(1.1);
+}
+.main-container .task-list .task .editInput .cancelButton:active {
   transform: translatey(4px);
 }
 .main-container .task-list .task.new-task {

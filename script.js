@@ -66,6 +66,8 @@ let editTask = (event) => {
     console.log(document.getElementById(`taskDescrip-${taskId}`));
     input.defaultValue = document.getElementById(`taskDescrip-${taskId}`).innerText;
     divEdit.appendChild(input);
+    let buttonGroup = document.createElement('div');
+    buttonGroup.className = 'buttons';
 
     let saveButton = document.createElement('button');
     saveButton.className = 'saveButton';
@@ -73,8 +75,16 @@ let editTask = (event) => {
     saveButton.name = taskId;
     saveButton.setAttribute("onclick", "saveTask(event)");
 
-    divEdit.appendChild(saveButton);
+    let cancelButton = document.createElement('button');
+    cancelButton.className = 'cancelButton';
+    cancelButton.innerHTML = 'Cancel';
+    cancelButton.name = taskId;
+    cancelButton.setAttribute("onclick", "cancelTask(event)");
 
+    buttonGroup.appendChild(saveButton);
+    buttonGroup.appendChild(cancelButton);
+
+    divEdit.appendChild(buttonGroup);
 
     document.getElementById(taskId).prepend(divEdit);
 }
@@ -87,7 +97,11 @@ let saveTask = (event) => {
     console.log(taskDescrip.innerText);
     let editDiv = document.getElementById(`edit-${taskId}`);
     editDiv.remove();
-
+}
+let cancelTask = (event) => {
+    // console.log(event.target.name);
+    let taskId = event.target.name;
+    document.getElementById(`edit-${taskId}`).remove();
 }
 
 document.getElementById("submit-Task").addEventListener("click", taskAdd);

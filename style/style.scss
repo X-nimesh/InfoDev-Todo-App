@@ -86,10 +86,28 @@
         gap: 10px;
 
         .task {
+
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 20px 20px;
+            border-radius: 20px;
+            background-color: #121111;
+            width: 50vw;
+            transition: ease-in-out 0.4s;
+            animation: append-animate .3s linear;
+
+            &:hover {
+                transform: scale(1.1);
+
+            }
+
             .editInput {
                 z-index: 2;
                 position: absolute;
-                width: 48%;
+                width: 50vw;
                 height: 60px;
                 background-color: #121111;
                 display: flex;
@@ -126,21 +144,25 @@
                         transform: translatey(4px);
                     }
                 }
+
+                .cancelButton {
+                    background: rgb(255, 74, 74);
+                    padding: 10px 40px;
+                    border-radius: 10px;
+                    color: rgb(0, 0, 0);
+                    font-weight: bold;
+                    border: none;
+                    transition: ease-in-out 0.2s;
+
+                    &:hover {
+                        transform: scale(1.1);
+                    }
+
+                    &:active {
+                        transform: translatey(4px);
+                    }
+                }
             }
-
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            padding: 20px 20px;
-            border-radius: 20px;
-            background-color: #121111;
-            min-width: 50%;
-            max-width: 50%;
-            transition: ease-in-out 0.4s;
-
-            animation: append-animate .3s linear;
 
             &.new-task {
                 animation: append-animate .3s linear;
