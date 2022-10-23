@@ -4,9 +4,31 @@
   font-family: Roboto;
 }
 
+@-webkit-keyframes append-animate {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes append-animate {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 .main-container {
   color: white;
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   width: 100%;
   background-color: #1E1E1E;
   display: flex;
@@ -61,16 +83,30 @@
 .main-container .task-list .task {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 20px;
   padding: 20px 20px;
   border-radius: 20px;
   background-color: #121111;
+  min-width: 50%;
+  max-width: 50%;
+  transition: ease-in-out 0.4s;
+  -webkit-animation: append-animate 0.3s linear;
+          animation: append-animate 0.3s linear;
 }
 .main-container .task-list .task input[type=checkbox] {
   width: 30px;
   height: 15px;
 }
-.main-container .task-list .task .edit {
+.main-container .task-list .task.new-task {
+  -webkit-animation: append-animate 0.3s linear;
+          animation: append-animate 0.3s linear;
+}
+.main-container .task-list .task .buttons {
+  display: flex;
+  gap: 20px;
+}
+.main-container .task-list .task .buttons .editButton {
   background: rgb(74, 74, 255);
   padding: 10px 20px;
   border-radius: 10px;
@@ -79,13 +115,13 @@
   border: none;
   transition: ease-in-out 0.2s;
 }
-.main-container .task-list .task .edit:hover {
+.main-container .task-list .task .buttons .editButton:hover {
   transform: scale(1.1);
 }
-.main-container .task-list .task .edit:active {
+.main-container .task-list .task .buttons .editButton:active {
   transform: translatey(4px);
 }
-.main-container .task-list .task .delete {
+.main-container .task-list .task .buttons .deleteButton {
   background: rgb(255, 74, 74);
   border: none;
   padding: 10px 20px;
@@ -94,9 +130,9 @@
   font-weight: bold;
   transition: ease-in-out 0.2s;
 }
-.main-container .task-list .task .delete:hover {
+.main-container .task-list .task .buttons .deleteButton:hover {
   transform: scale(1.1);
 }
-.main-container .task-list .task .delete:active {
+.main-container .task-list .task .buttons .deleteButton:active {
   transform: translatey(4px);
 }/*# sourceMappingURL=style.css.map */
