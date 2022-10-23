@@ -94,9 +94,40 @@
   -webkit-animation: append-animate 0.3s linear;
           animation: append-animate 0.3s linear;
 }
-.main-container .task-list .task input[type=checkbox] {
-  width: 30px;
-  height: 15px;
+.main-container .task-list .task .editInput {
+  z-index: 2;
+  position: absolute;
+  width: 48%;
+  height: 60px;
+  background-color: #121111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+.main-container .task-list .task .editInput input[type=text] {
+  width: 60%;
+  padding: 10px 10px;
+  border-radius: 10px;
+  border: none;
+}
+.main-container .task-list .task .editInput input[type=text]:focus {
+  outline: none;
+}
+.main-container .task-list .task .editInput .saveButton {
+  background: rgb(101, 255, 74);
+  padding: 10px 40px;
+  border-radius: 10px;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  border: none;
+  transition: ease-in-out 0.2s;
+}
+.main-container .task-list .task .editInput .saveButton:hover {
+  transform: scale(1.1);
+}
+.main-container .task-list .task .editInput .saveButton:active {
+  transform: translatey(4px);
 }
 .main-container .task-list .task.new-task {
   -webkit-animation: append-animate 0.3s linear;

@@ -19,6 +19,7 @@ let taskAdd = () => {
     let p = document.createElement('p');
     p.innerHTML = task.value;
     p.className = 'task-descip';
+    p.id = `taskDescrip-${taskId}`;
     div.appendChild(p);
 
     let innerDiv = document.createElement('div');
@@ -27,6 +28,8 @@ let taskAdd = () => {
     let editButton = document.createElement('button');
     editButton.className = 'editButton';
     editButton.innerHTML = 'Edit';
+    editButton.name = taskId;
+    editButton.setAttribute("onclick", "editTask(event)");
     innerDiv.appendChild(editButton);
 
     let deleteButton = document.createElement('button');
@@ -49,6 +52,44 @@ let deleteTask = (event) => {
     }
 
 }
+
+let editTask = (event) => {
+    console.log(event.target.name);
+    let taskId = event.target.name;
+    let divEdit = document.createElement('div');
+    divEdit.className = 'editInput';
+    divEdit.id = `edit-${taskId}`;
+
+    let input = document.createElement('input');
+    input.type = 'text';
+    input.id = `editDes-${taskId}`;
+    console.log(document.getElementById(`taskDescrip-${taskId}`));
+    input.defaultValue = document.getElementById(`taskDescrip-${taskId}`).innerText;
+    divEdit.appendChild(input);
+
+    let saveButton = document.createElement('button');
+    saveButton.className = 'saveButton';
+    saveButton.innerHTML = 'Save';
+    saveButton.name = taskId;
+    saveButton.setAttribute("onclick", "saveTask(event)");
+
+    divEdit.appendChild(saveButton);
+
+
+    document.getElementById(taskId).prepend(divEdit);
+}
+let saveTask = (event) => {
+    console.log(event.target.name);
+    let taskId = event.target.name;
+    let newDescrip = document.getElementById(`editDes-${taskId}`).value;
+    let taskDescrip = document.getElementById(`taskDescrip-${taskId}`);
+    taskDescrip.innerHTML = newDescrip;
+    console.log(taskDescrip.innerText);
+    let editDiv = document.getElementById(`edit-${taskId}`);
+    editDiv.remove();
+
+}
+
 document.getElementById("submit-Task").addEventListener("click", taskAdd);
 
 

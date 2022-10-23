@@ -17,9 +17,13 @@
       <h1 class="heading">Tasks</h1>
       <div class="task-list" id="taskList">
         <div class="task" id="1">
-          <p class="task-descip">Complete the task before task 2</p>
+          <p class="task-descip" id="taskDescrip-1">
+            Complete the task before task 2
+          </p>
           <div class="buttons">
-            <button class="editButton">Edit</button>
+            <button class="editButton" name="1" onclick="editTask(event)">
+              Edit
+            </button>
             <button class="deleteButton" id="1" onclick="deleteTask(event)">
               Delete
             </button>

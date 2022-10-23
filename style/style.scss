@@ -86,10 +86,48 @@
         gap: 10px;
 
         .task {
-            input[type='checkbox'] {
-                width: 30px;
-                height: 15px;
+            .editInput {
+                z-index: 2;
+                position: absolute;
+                width: 48%;
+                height: 60px;
+                background-color: #121111;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 30px;
+
+                input[type='text'] {
+                    width: 60%;
+                    padding: 10px 10px;
+                    border-radius: 10px;
+                    border: none;
+
+                    &:focus {
+                        outline: none;
+                    }
+
+                }
+
+                .saveButton {
+                    background: rgb(101, 255, 74);
+                    padding: 10px 40px;
+                    border-radius: 10px;
+                    color: rgb(0, 0, 0);
+                    font-weight: bold;
+                    border: none;
+                    transition: ease-in-out 0.2s;
+
+                    &:hover {
+                        transform: scale(1.1);
+                    }
+
+                    &:active {
+                        transform: translatey(4px);
+                    }
+                }
             }
+
 
             display: flex;
             align-items: center;
