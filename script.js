@@ -1,8 +1,49 @@
 
+(() => {
+    console.log(localStorage.key(0));
+    for (let i = 0; i < localStorage.length; i++) {
+        // console.log(localStorage[i]);
+        let taskId = localStorage.key(i);
+        let taskValue = localStorage.getItem(taskId);
+        let div = document.createElement('div');
+        div.classList.add('task', 'new-task');
+        div.id = taskId;
+
+        let p = document.createElement('p');
+        p.innerHTML = taskValue;
+        p.className = 'task-descip';
+        p.id = `taskDescrip-${taskId}`;
+        div.appendChild(p);
+
+        let innerDiv = document.createElement('div');
+        innerDiv.className = 'buttons';
+
+        let editButton = document.createElement('button');
+        editButton.className = 'editButton';
+        editButton.innerHTML = 'Edit';
+        editButton.name = taskId;
+        editButton.setAttribute("onclick", "editTask(event)");
+        innerDiv.appendChild(editButton);
+
+        let deleteButton = document.createElement('button');
+        deleteButton.className = 'deleteButton';
+        deleteButton.innerHTML = 'Delete';
+        deleteButton.id = taskId;
+
+        deleteButton.setAttribute("onclick", "deleteTask(event)");
+        innerDiv.appendChild(deleteButton)
+
+        div.appendChild(innerDiv);
+        taskList.appendChild(div);
+    }
+})();
+
 let taskAdd = () => {
     let task = document.getElementById('create-task');
     console.log(task.value);
-
+    if (task.value === '') {
+        return;
+    }
     // retrieving the latest task id
     let taskList = document.getElementById('taskList');
     let taskCount = taskList.childElementCount - 1;
@@ -42,6 +83,7 @@ let taskAdd = () => {
 
     div.appendChild(innerDiv);
     taskList.appendChild(div);
+    localStorage.setItem(taskId, task.value);
 
 }
 let deleteTask = (event) => {
@@ -49,8 +91,8 @@ let deleteTask = (event) => {
         console.log(event.target.id);
         let taskId = event.target.id;
         document.getElementById(taskId).remove();
+        localStorage.removeItem(taskId);
     }
-
 }
 
 let editTask = (event) => {
@@ -97,6 +139,7 @@ let saveTask = (event) => {
     console.log(taskDescrip.innerText);
     let editDiv = document.getElementById(`edit-${taskId}`);
     editDiv.remove();
+    localStorage.setItem(taskId, newDescrip);
 }
 let cancelTask = (event) => {
     // console.log(event.target.name);
